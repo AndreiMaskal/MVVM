@@ -7,16 +7,19 @@
 
 import Foundation
 
-class ViewModel {
+class LoginViewModel {
+    
     var statusText = Dynamic("")
+    var isLoggedIn = false
     
     func userButtonPressed(login: String, password: String) {
         
         if login != User.logins.first?.login || password != User.logins.first?.password {
-            statusText.value = "Log in failed"
+            statusText.value = "Hе верный логин или пароль"
+            isLoggedIn = false
         } else {
-            statusText.value = "You successfully logged in"
-          
+            statusText.value = "Добро пожаловать"
+            isLoggedIn = true
         }
     }
 }
